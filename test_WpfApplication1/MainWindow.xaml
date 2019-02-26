@@ -1,0 +1,60 @@
+﻿<Window x:Name="BLEWindow" x:Class="FoupBluetoothTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoupBluetoothTracker"
+        mc:Ignorable="d"
+        Title="Foup BLE Tracker" Height="571.667" Width="1039.825">
+    <Grid Height="542" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="1032">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="373*"/>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="303*"/>
+            <ColumnDefinition Width="72*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" HorizontalAlignment="Left" Height="75" Margin="100,57,0,0" VerticalAlignment="Top" Width="447" Grid.ColumnSpan="3"/>
+        <Button x:Name="button0" Content="Launch GeoLocator" HorizontalAlignment="Left" Margin="15,61,0,0" VerticalAlignment="Top" Width="133" RenderTransformOrigin="0.585,-0.495" Click="button_Click_1" Height="22" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="button1" Content="Start BLE Scans" HorizontalAlignment="Left" Margin="15,98,0,0" VerticalAlignment="Top" Width="133" Click="button1_Click" Height="22" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Margin="15,137,0,0" VerticalAlignment="Top" Width="465" Grid.ColumnSpan="3" Cursor="None" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="380" Grid.Column="1" FontFamily="Lucida Console" FontSize="10" Background="White" Block.LineHeight="1">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="BLE "/>
+                    <Run Text=" "/>
+                    <Run Text="devices"/>
+                    <Run Text=" "/>
+                    <Run Text=":"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="button" Content="Stop Scan" HorizontalAlignment="Left" Margin="120,98,0,0" VerticalAlignment="Top" Width="107" Click="button_Click_2" Grid.Column="2" Height="22"/>
+        <Button x:Name="button2" Content="Read Beacon" HorizontalAlignment="Left" Margin="118,98,0,0" VerticalAlignment="Top" Width="107" Click="button2_Click" Grid.Column="3" Height="22"/>
+        <RichTextBox x:Name="jSONTextBox" Grid.ColumnSpan="3" Grid.Column="3" HorizontalAlignment="Left" Height="380" Margin="100,137,0,0" VerticalAlignment="Top" Width="494" FontSize="10" FontFamily="Lucida Console" Background="White" Block.LineHeight="1" Cursor="None" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph LineHeight="1">
+                    <Run Text="JSON POST"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="button3" Content="Stop Beacon" Grid.Column="4" HorizontalAlignment="Left" Margin="31,98,0,0" VerticalAlignment="Top" Width="100" Click="button3_Click" IsEnabled="False" Height="22"/>
+        <CheckBox x:Name="checkBox1" Content="Logging" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="247,101,0,0" VerticalAlignment="Top" Width="98"/>
+        <CheckBox x:Name="checkBox2" Content="Logging" Grid.Column="4" HorizontalAlignment="Left" Height="22" Margin="162,88,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name="button_clear_log" Content="Clear Logs" HorizontalAlignment="Left" Margin="350,98,0,0" VerticalAlignment="Top" Width="107" Grid.Column="2" Height="22" Grid.ColumnSpan="2" Click="button_clear_log_Click"/>
+        <Label x:Name="label" Content="Start Foup Tracking Here" Grid.Column="3" HorizontalAlignment="Left" Margin="100,57,0,0" VerticalAlignment="Top" Height="26" Width="188" Grid.ColumnSpan="2"/>
+        <Label x:Name="label1" Content="Device Status:" Grid.Column="4" HorizontalAlignment="Left" Margin="40,8,0,0" VerticalAlignment="Top" Height="26" Width="84"/>
+        <Label x:Name="ConnectionStatusLabel" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="121,8,0,0" VerticalAlignment="Top" Height="26" Width="147" FontWeight="Bold"/>
+        <Label x:Name="label1_Copy" Content="IP: " Grid.Column="3" HorizontalAlignment="Left" Margin="37,8,0,0" VerticalAlignment="Top" Height="26" Width="26"/>
+        <Label x:Name="ipAddressLabel" Content="" Grid.Column="3" HorizontalAlignment="Left" Height="26" Margin="60,8,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Foreground="Blue"/>
+        <Label x:Name="label1_Copy1" Content="SENSOR ID: " Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="84" Margin="22,8,0,0"/>
+        <Label x:Name="label1_Copy2" Content="CLEANROOM:" Grid.Column="2" HorizontalAlignment="Left" Margin="230,8,0,0" VerticalAlignment="Top" Height="26" Width="84" RenderTransformOrigin="1.93,0.267"/>
+        <Label x:Name="sensorIDLabel" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="92,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.469,0.094" Width="87" FontWeight="Bold" Foreground="Blue"/>
+        <Label x:Name="cleanroomLabel" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="319,8,0,0" VerticalAlignment="Top" Width="59" FontWeight="Bold" Foreground="Blue" Grid.ColumnSpan="2"/>
+        <Button x:Name="refreshIPButton" Content="Refresh IP" HorizontalAlignment="Left" Margin="120,61,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.585,-0.495" Height="22" Grid.Column="2" Click="refreshIPButton_Click"/>
+        <Button x:Name="resetNetworkButton" Content="Reset Network" Grid.Column="2" HorizontalAlignment="Left" Margin="239,61,0,0" VerticalAlignment="Top" Width="106" Click="resetNetworkButton_Click"/>
+        <CheckBox x:Name="verboseCheckBox" Content="Enable Verbose Debug" Grid.Column="4" HorizontalAlignment="Left" Margin="162,65,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="serverResponseCheckbox" Content="Server Response" Grid.Column="4" HorizontalAlignment="Left" Margin="162,110,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
